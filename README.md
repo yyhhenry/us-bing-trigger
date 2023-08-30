@@ -1,5 +1,9 @@
 # US Bing Trigger
 
+[
+![Tamper Monkey](https://img.shields.io/badge/Tamper_Monkey-US_Bing_Trigger-blue)
+](https://github.com/yyhhenry/us-bing-trigger/raw/main/dist/us-bing-trigger.user.js)
+
 ## Description
 
 This is a trigger for [Bing](https://www.bing.com/) search engine.
