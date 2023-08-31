@@ -1,6 +1,8 @@
 # US Bing Trigger
 
-Download the script from Release page and install it as a tampermonkey script.
+Download the script from Cloudflare page and install it as a tampermonkey script. ( Cannot access yet )
+
+从 Cloudflare 页面下载脚本并安装为 tampermonkey 脚本。（暂时无法访问）
 
 ## Description
 
