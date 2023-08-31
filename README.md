@@ -1,8 +1,8 @@
 # US Bing Trigger
 
-[
-![Tamper Monkey](https://img.shields.io/badge/Tamper_Monkey-US_Bing_Trigger-blue)
-](https://github.com/yyhhenry/us-bing-trigger/raw/main/dist/us-bing-trigger.user.js)
+Download the script from Cloudflare page and install it as a tampermonkey script. ( Cannot access yet )
+
+从 Cloudflare 页面下载脚本并安装为 tampermonkey 脚本。（暂时无法访问）
 
 ## Description
 
