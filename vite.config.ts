@@ -16,6 +16,7 @@ export default defineConfig({
 // @match        https://cn.bing.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bing.com
 // @grant        none
+// @homepage     https://github.com/yyhhenry/us-bing-trigger
 // ==/UserScript==
   `.trim(),
       verify: false,

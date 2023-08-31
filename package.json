@@ -9,7 +9,8 @@
   },
   "type": "module",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.1",
