@@ -3,7 +3,9 @@
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare%20Pages-US_Bing_Trigger-000000?style=flat-square&logo=cloudflare&logoColor=white)
 ](https://us-bing-trigger.pages.dev/us-bing-trigger.user.js)
 
-Need to install tampermonkey first.
+Need to install Tampermonkey first.
+
+首先需要安装 tampermonkey（篡改猴）浏览器插件。
 
 ## Description
 
