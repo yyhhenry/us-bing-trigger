@@ -1,16 +1,17 @@
 import { defineConfig } from 'vite';
 import banner from 'vite-plugin-banner';
+import pkg from './package.json';
 
 export default defineConfig({
   plugins: [
     banner({
       content: `
 // ==UserScript==
-// @name         US Bing Trigger
+// @name         ${pkg.name}
 // @namespace    http://tampermonkey.net/
-// @version      0.0.1
-// @description  When you search on Bing, it will force the country setting to be US.
-// @author       yyhhenry@foxmail.com
+// @version      ${pkg.version}
+// @description  ${pkg.description.replaceAll('\n', ' ')}
+// @author       ${pkg.author.email}
 // @match        https://www.bing.com/*
 // @match        https://cn.bing.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bing.com

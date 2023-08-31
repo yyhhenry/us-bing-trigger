@@ -1,8 +1,6 @@
 # US Bing Trigger
 
-[
-![Tamper Monkey](https://img.shields.io/badge/Tamper_Monkey-US_Bing_Trigger-blue)
-](https://github.com/yyhhenry/us-bing-trigger/raw/main/dist/us-bing-trigger.user.js)
+Download the script from Release page and install it as a tampermonkey script.
 
 ## Description
 

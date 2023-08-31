@@ -1,6 +1,12 @@
 {
   "name": "us-bing-trigger",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "license": "MIT",
+  "description": "Automatically redirecting to the global version of Bing.",
+  "author": {
+    "name": "yyhhenry",
+    "email": "yyhhenry@foxmail.com"
+  },
   "type": "module",
   "scripts": {
     "build": "vite build"
