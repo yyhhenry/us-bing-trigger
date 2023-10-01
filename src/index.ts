@@ -11,8 +11,14 @@ function isCNBing() {
 function generateUSBingURL() {
   const url = getCurrentURL();
   url.host = 'www.bing.com';
-  url.searchParams.delete('mkt');
+  const q = url.searchParams.get('q') ?? '';
+  url.search = '';
+
+  // Set cc=us to avoid redirecting to local Bing
   url.searchParams.set('cc', 'us');
+  // Restore the search query
+  url.searchParams.set('q', q);
+
   return url;
 }
 if (isCNBing()) {
