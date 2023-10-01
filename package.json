@@ -10,12 +10,14 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.1",
     "@types/node": "18",
     "@vue/tsconfig": "^0.4.0",
+    "prettier": "^3.0.3",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-banner": "^0.7.0"
