@@ -1,26 +1,53 @@
-function getCurrentURL() {
-  return new URL(window.location.href);
+export const US_BING_HOST = 'www.bing.com';
+export const CN_BING_HOST = 'cn.bing.com';
+export const MARK_NAME = 'us-bing-trigger';
+export const WAIT_TIME = 2000;
+export function resolveURL(url?: URL | string) {
+  const here = window.location.href;
+  const urlObj = new URL(url ?? here, here);
+  return urlObj;
 }
-function isCNBing() {
-  const url = getCurrentURL();
+export function isCNBing(url?: URL | string) {
+  const urlObj = resolveURL(url);
   return (
-    url.host === 'cn.bing.com' ||
-    (url.host == 'www.bing.com' && url.searchParams.get('mkt') === 'zh-CN')
+    urlObj.host === CN_BING_HOST ||
+    (urlObj.host === US_BING_HOST && urlObj.searchParams.get('mkt') === 'zh-CN')
   );
 }
-function generateUSBingURL() {
-  const url = getCurrentURL();
-  url.host = 'www.bing.com';
-  const q = url.searchParams.get('q') ?? '';
-  url.search = '';
+export function toUSBingURL(url?: URL | string) {
+  const urlObj = resolveURL(url);
+  urlObj.host = US_BING_HOST;
+  const q = urlObj.searchParams.get('q') ?? '';
+  urlObj.search = '';
 
   // Set cc=us to avoid redirecting to local Bing
-  url.searchParams.set('cc', 'us');
+  urlObj.searchParams.set('cc', 'us');
   // Restore the search query
-  url.searchParams.set('q', q);
+  urlObj.searchParams.set('q', q);
+  // Add `trigger-from` mark to avoid redirecting again
+  urlObj.searchParams.set(MARK_NAME, '');
 
-  return url;
+  return urlObj;
 }
-if (isCNBing()) {
-  window.location.replace(generateUSBingURL());
+export function resolveMark() {
+  const urlObj = resolveURL();
+  const hasMark = urlObj.searchParams.has(MARK_NAME);
+  if (hasMark) {
+    urlObj.searchParams.delete(MARK_NAME);
+    setTimeout(() => {
+      window.history.replaceState({}, '', urlObj);
+    }, WAIT_TIME);
+  }
+  return hasMark;
 }
+
+export function resolveRedirecting() {
+  if (resolveMark()) {
+    return;
+  }
+  if (isCNBing()) {
+    window.location.replace(toUSBingURL());
+  }
+}
+
+resolveRedirecting();
