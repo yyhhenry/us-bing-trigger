@@ -1,26 +1,61 @@
-function getCurrentURL() {
-  return new URL(window.location.href);
+const US_BING_HOST = 'www.bing.com';
+const CN_BING_HOST = 'cn.bing.com';
+const MARK_NAME = 'us-bing-trigger';
+const WAIT_TIME = 2000;
+function resolveURL(url?: URL | string) {
+  const here = window.location.href;
+  const urlObj = new URL(url ?? here, here);
+  return urlObj;
 }
-function isCNBing() {
-  const url = getCurrentURL();
+function isCNBing(url?: URL | string) {
+  const urlObj = resolveURL(url);
   return (
-    url.host === 'cn.bing.com' ||
-    (url.host == 'www.bing.com' && url.searchParams.get('mkt') === 'zh-CN')
+    urlObj.host === CN_BING_HOST ||
+    (urlObj.host === US_BING_HOST && urlObj.searchParams.get('mkt') === 'zh-CN')
   );
 }
-function generateUSBingURL() {
-  const url = getCurrentURL();
-  url.host = 'www.bing.com';
-  const q = url.searchParams.get('q') ?? '';
-  url.search = '';
+function toUSBingURL(url?: URL | string) {
+  const urlObj = resolveURL(url);
+  urlObj.host = US_BING_HOST;
+  const q = urlObj.searchParams.get('q') ?? '';
+  urlObj.search = '';
 
   // Set cc=us to avoid redirecting to local Bing
-  url.searchParams.set('cc', 'us');
+  urlObj.searchParams.set('cc', 'us');
   // Restore the search query
-  url.searchParams.set('q', q);
+  urlObj.searchParams.set('q', q);
+  // Add `trigger-from` mark to avoid redirecting again
+  urlObj.searchParams.set(MARK_NAME, '');
 
-  return url;
+  return urlObj;
 }
-if (isCNBing()) {
-  window.location.replace(generateUSBingURL());
+function hasMark() {
+  const urlObj = resolveURL();
+  return urlObj.searchParams.has(MARK_NAME);
 }
+function asyncSleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+async function removeMark() {
+  const urlObj = resolveURL();
+  urlObj.searchParams.delete(MARK_NAME);
+  const newURL = urlObj.href;
+  await asyncSleep(WAIT_TIME);
+  window.history.replaceState({}, '', newURL);
+}
+
+async function redirectUSBing() {
+  if (hasMark()) {
+    await removeMark();
+    if (isCNBing()) {
+      console.info("Seems like you don't have a VPN.");
+    } else {
+      console.info('Redirected to US Bing.');
+    }
+  } else if (isCNBing()) {
+    console.info('Redirecting to US Bing...');
+    window.location.replace(toUSBingURL());
+  }
+}
+
+redirectUSBing();
