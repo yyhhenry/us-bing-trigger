@@ -1,7 +1,6 @@
 # US Bing Trigger
 
-[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare%20Pages-US_Bing_Trigger-000000?style=flat-square&logo=cloudflare&logoColor=white)
-](https://us-bing-trigger.pages.dev/us-bing-trigger.user.js)
+[deprecated] See <https://github.com/yyhhenry/us-bing-deno>
 
 Need to install Tampermonkey first.
 
