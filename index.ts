@@ -2,20 +2,16 @@ const US_BING_HOST = "www.bing.com";
 const CN_BING_HOST = "cn.bing.com";
 const MARK_NAME = "us-bing-trigger";
 const WAIT_TIME = 2000;
-function resolveURL(url?: URL | string) {
-  const here = window.location.href;
-  const urlObj = new URL(url ?? here, here);
-  return urlObj;
-}
-function isCNBing(url?: URL | string) {
-  const urlObj = resolveURL(url);
+
+const urlObj = new URL(window.location.href);
+
+function isCNBing() {
   return (
     urlObj.host === CN_BING_HOST ||
     (urlObj.host === US_BING_HOST && urlObj.searchParams.get("mkt") === "zh-CN")
   );
 }
-function toUSBingURL(url?: URL | string) {
-  const urlObj = resolveURL(url);
+function redirectToUSBing() {
   urlObj.host = US_BING_HOST;
   const q = urlObj.searchParams.get("q") ?? "";
   urlObj.search = "";
@@ -27,24 +23,22 @@ function toUSBingURL(url?: URL | string) {
   // Add `trigger-from` mark to avoid redirecting again
   urlObj.searchParams.set(MARK_NAME, "");
 
-  return urlObj;
+  window.location.replace(urlObj);
 }
 function hasMark() {
-  const urlObj = resolveURL();
   return urlObj.searchParams.has(MARK_NAME);
 }
 function asyncSleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 async function removeMark() {
-  const urlObj = resolveURL();
   urlObj.searchParams.delete(MARK_NAME);
   const newURL = urlObj.href;
   await asyncSleep(WAIT_TIME);
   window.history.replaceState({}, "", newURL);
 }
 
-async function redirectUSBing() {
+async function redirectIfPossible() {
   if (hasMark()) {
     await removeMark();
     if (isCNBing()) {
@@ -54,8 +48,8 @@ async function redirectUSBing() {
     }
   } else if (isCNBing()) {
     console.info("Redirecting to US Bing...");
-    window.location.replace(toUSBingURL());
+    redirectToUSBing();
   }
 }
 
-redirectUSBing();
+redirectIfPossible();
