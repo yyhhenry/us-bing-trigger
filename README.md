@@ -1,21 +1,21 @@
-# US Bing Trigger
-
-[deprecated] See <https://github.com/yyhhenry/us-bing-deno>
+# us-bing-trigger
 
 Need to install Tampermonkey first.
 
-首先需要安装 tampermonkey（篡改猴）浏览器插件。
+Automatically switch to the global version of Bing when Chinese Bing is detected.
 
-## Description
+Fall back when you cannot access the global version of Bing.
 
-This is a trigger for [Bing](https://www.bing.com/) search engine.
+## 中文
 
-这是一个用于 [Bing](https://www.bing.com/) 搜索引擎的触发器。
+需要先安装 Tampermonkey（又称“油猴”或“篡改猴”）。
 
-As commonly known, Chinese users always get into a special version of Bing, which is not as good as the global version, usually after typing in the address bar of Edge. This trigger is designed to solve this problem, by automatically redirecting the user to the global version of Bing.
+当检测到中国必应时，自动切换到全球版必应。
 
-众所周知，中国用户在 Edge 的地址栏中输入搜索词后，通常会被自动重定向到一个特殊的 Bing 版本，该版本不如全球版好用。本触发器旨在解决这个问题，会自动重定向用户到全球版 Bing。
+当前用户无法访问全球版必应时，回退到中国必应。
 
-However, if you are not able to access global Bing at all, this trigger will not work for you. This trigger is just designed to automatically switch to global Bing, not to bypass the GFW.
+## Installation
 
-但是，如果你根本无法访问全球版 Bing，那么本触发器对你来说是无效的。本触发器只是为了自动切换到全球版 Bing，而不是为了绕过 GFW。
+1. Install Tampermonkey from [tampermonkey.net](https://www.tampermonkey.net/).
+
+2. Add the script from GitHub Release: [us-bing-trigger.user.js](https://github.com/yyhhenry/us-bing-trigger/releases/latest/download/us-bing-trigger.user.js).
