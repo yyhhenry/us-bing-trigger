@@ -1,6 +1,6 @@
 {
   "name": "us-bing-trigger",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "license": "MIT",
   "description": "Automatically redirecting to the global version of Bing.",
   "author": {
@@ -9,21 +9,18 @@
   },
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "preview": "vite preview",
-    "format": "prettier --write .",
-    "lint": "eslint --ext .ts --fix ."
+    "lint": "oxlint -D pedantic --fix",
+    "type-check": "tsc --noEmit -p tsconfig.json",
+    "build-only": "tsx build.ts",
+    "build": "run-s lint type-check build-only"
   },
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.2",
-    "@types/node": "^20.8.9",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
-    "@vue/tsconfig": "^0.4.0",
-    "eslint": "^8.52.0",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2",
-    "vite": "^4.4.9",
-    "vite-plugin-banner": "^0.7.0"
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.14.10",
+    "typescript": "^5.5.3",
+    "esbuild": "^0.23.0",
+    "npm-run-all2": "^6.2.2",
+    "oxlint": "^0.6.0",
+    "tsx": "^4.16.2"
   }
 }
