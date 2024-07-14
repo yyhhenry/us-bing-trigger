@@ -1,6 +1,6 @@
 {
   "name": "us-bing-trigger",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "license": "MIT",
   "description": "Automatically redirecting to the global version of Bing.",
   "author": {
