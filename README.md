@@ -2,7 +2,8 @@
 
 Need to install Tampermonkey first.
 
-Automatically switch to the global version of Bing when Chinese Bing is detected.
+Automatically switch to the global version of Bing when Chinese Bing is
+detected.
 
 Fall back when you cannot access the global version of Bing.
 
@@ -18,4 +19,5 @@ Fall back when you cannot access the global version of Bing.
 
 1. Install Tampermonkey from [tampermonkey.net](https://www.tampermonkey.net/).
 
-2. Add the script from GitHub Release: [us-bing-trigger.user.js](https://github.com/yyhhenry/us-bing-trigger/releases/latest/download/us-bing-trigger.user.js).
+2. Add the script from GitHub Release:
+   [us-bing-trigger.user.js](https://github.com/yyhhenry/us-bing-trigger/releases/latest/download/us-bing-trigger.user.js).

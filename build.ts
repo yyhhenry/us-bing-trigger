@@ -1,41 +1,28 @@
 import * as esbuild from "esbuild";
-import pkg from "./package.json";
+import {
+  generateBanner,
+  iconFromDomain,
+  ScriptMetadata,
+} from "./utils/metadata.ts";
+import pkg from "./deno.json" with { type: "json" };
 
-const manualMetadata = `
-// @match        https://www.bing.com/*
-// @match        https://cn.bing.com/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=bing.com
-// @grant        none
-// @noframes
-`;
-
-// Auto-generate metadata
-const name = pkg.name;
-const user = pkg.author.name;
-const version = pkg.version;
-const description = pkg.description;
-const github = `https://github.com/${user}/${name}`;
-const download = `${github}/releases/latest/download/${name}.user.js`;
-
-const banner = `
-// ==UserScript==
-// @name         ${name}
-// @namespace    ${github}
-// @version      ${version}
-// @description  ${description}
-// @author       ${user}
-// @homepage     ${github}
-// @updateURL    ${download}
-// @downloadURL  ${download}
-${manualMetadata}
-// ==/UserScript==
-`.trim();
+const metadata: ScriptMetadata = {
+  name: "us-bing-trigger",
+  version: pkg.version,
+  author: "yyhhenry",
+  description: "Automatically redirecting to the global version of Bing.",
+  icon: iconFromDomain("bing.com"),
+  match: ["https://www.bing.com/*", "https://cn.bing.com/*"],
+};
 
 await esbuild.build({
-  entryPoints: ["index.ts"],
+  entryPoints: ["src/main.ts"],
+  target: "es2020",
   bundle: true,
-  outfile: "dist/us-bing-trigger.user.js",
+  outfile: `dist/${metadata.name}.user.js`,
+  platform: "browser",
+  format: "esm",
   banner: {
-    js: banner,
+    js: generateBanner(metadata),
   },
 });

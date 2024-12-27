@@ -3,23 +3,20 @@ name: Release
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - "v*.*.*"
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: denoland/setup-deno@v2
         with:
-          node-version: '20'
-      - name: Setup pnpm
-        run: npm install -g pnpm
-      - name: Install Dependencies
-        run: pnpm i
-      - name: Check All and Build
-        run: pnpm build
+          deno-version: v2.x
+      - name: Lint
+        run: deno lint
+      - name: Test
+        run: deno -A build.ts
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:

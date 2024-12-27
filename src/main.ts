@@ -18,10 +18,10 @@ const WAIT_TIME = 2000;
 /**
  * URL object of the current page.
  */
-const urlObj = new URL(window.location.href);
+const urlObj = new URL(globalThis.location.href);
 /**
  * Check if the current page is CN Bing.
- * 
+ *
  * When the host is `cn.bing.com` or `mkt=zh-CN` is in the search query,
  */
 function isCNBing() {
@@ -46,7 +46,7 @@ function redirectToUSBing() {
   // Add `trigger-from` mark to avoid redirecting again
   urlObj.searchParams.set(MARK_NAME, "");
 
-  window.location.replace(urlObj);
+  globalThis.location.replace(urlObj);
 }
 /**
  * Check if the URL has the mark.
@@ -68,13 +68,13 @@ async function removeMark() {
   urlObj.searchParams.delete(MARK_NAME);
   const newURL = urlObj.href;
   await asyncSleep(WAIT_TIME);
-  window.history.replaceState({}, "", newURL);
+  globalThis.history.replaceState({}, "", newURL);
 }
 
 /**
  * Redirect to US Bing with mark in search query,
  * or log a message when the mark is detected.
- * 
+ *
  * When the mark is detected and the page is still CN Bing,
  * that means we failed to redirect to US Bing last time.
  */
