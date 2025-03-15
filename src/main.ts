@@ -18,7 +18,7 @@ const WAIT_TIME = 2000;
 /**
  * URL object of the current page.
  */
-const urlObj = new URL(globalThis.location.href);
+const urlObj = new URL(window.location.href);
 /**
  * Check if the current page is CN Bing.
  *
@@ -46,7 +46,7 @@ function redirectToUSBing() {
   // Add `trigger-from` mark to avoid redirecting again
   urlObj.searchParams.set(MARK_NAME, "");
 
-  globalThis.location.replace(urlObj);
+  window.location.replace(urlObj);
 }
 /**
  * Check if the URL has the mark.
@@ -68,7 +68,7 @@ async function removeMark() {
   urlObj.searchParams.delete(MARK_NAME);
   const newURL = urlObj.href;
   await asyncSleep(WAIT_TIME);
-  globalThis.history.replaceState({}, "", newURL);
+  window.history.replaceState({}, "", newURL);
 }
 
 /**
