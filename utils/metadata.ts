@@ -32,10 +32,11 @@ export function iconFromDomain(domain: string): string {
 }
 
 export function generateBanner(metadata: ScriptMetadata): string {
-  const github = metadata.github ??
-    `https://github.com/${metadata.author}/${metadata.name}`;
-  const download = metadata.download ??
-    `${github}/releases/latest/download/${metadata.name}`;
+  const github =
+    metadata.github ?? `https://github.com/${metadata.author}/${metadata.name}`;
+  const download =
+    metadata.download ??
+    `${github}/releases/latest/download/${metadata.name}.user.js`;
 
   const results: string[] = [];
   results.push("// ==UserScript==");
