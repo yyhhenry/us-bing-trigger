@@ -2,9 +2,9 @@ import * as esbuild from "esbuild";
 import {
   generateBanner,
   iconFromDomain,
-  ScriptMetadata,
+  type ScriptMetadata,
 } from "./utils/metadata.ts";
-import pkg from "./deno.json" with { type: "json" };
+import pkg from "./package.json";
 
 const metadata: ScriptMetadata = {
   name: "us-bing-trigger",
