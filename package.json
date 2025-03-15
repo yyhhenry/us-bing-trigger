@@ -5,7 +5,7 @@
     "email": "yyhhenry@foxmail.com"
   },
   "description": "Automatically redirecting to the global version of Bing.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "devDependencies": {
     "@types/bun": "latest"
   },
