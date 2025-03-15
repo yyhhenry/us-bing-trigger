@@ -7,10 +7,10 @@ import {
 import pkg from "./package.json" with { type: "json" };
 
 const metadata: ScriptMetadata = {
-  name: "us-bing-trigger",
+  name: pkg.name,
   version: pkg.version,
-  author: "yyhhenry",
-  description: "Automatically redirecting to the global version of Bing.",
+  author: pkg.author.name,
+  description: pkg.description,
   icon: iconFromDomain("bing.com"),
   match: ["https://www.bing.com/*", "https://cn.bing.com/*"],
 };
