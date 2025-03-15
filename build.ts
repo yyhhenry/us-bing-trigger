@@ -4,7 +4,7 @@ import {
   iconFromDomain,
   type ScriptMetadata,
 } from "./utils/metadata.ts";
-import pkg from "./package.json";
+import pkg from "./package.json" with { type: "json" };
 
 const metadata: ScriptMetadata = {
   name: "us-bing-trigger",
