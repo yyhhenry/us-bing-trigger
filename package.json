@@ -5,9 +5,16 @@
     "email": "yyhhenry@foxmail.com"
   },
   "description": "Automatically redirecting to the global version of Bing.",
+  "scripts": {
+    "type-check": "tsc --noEmit --skipLibCheck --strict",
+    "biome-check": "biome check --write",
+    "check": "run-s type-check biome-check"
+  },
   "version": "0.2.3",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@biomejs/biome": "1.9.4",
+    "@types/bun": "latest",
+    "npm-run-all2": "^7.0.2"
   },
   "peerDependencies": {
     "typescript": "^5"

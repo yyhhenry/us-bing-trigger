@@ -15,6 +15,10 @@ jobs:
           bun-version: latest
       - name: Install Dependencies
         run: bun install
+      - name: Check
+        run: |
+          bun run type-check
+          bun run biome ci
       - name: Build
         run: bun ./build.ts
       - name: Create Release
