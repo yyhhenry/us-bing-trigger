@@ -10,7 +10,7 @@
     "biome-check": "biome check --write",
     "check": "run-s type-check biome-check"
   },
-  "version": "0.2.3",
+  "version": "0.2.4",
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@types/bun": "latest",
