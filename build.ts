@@ -16,6 +16,8 @@ const metadata: ScriptMetadata = {
   match: ["https://www.bing.com/*", "https://cn.bing.com/*"],
 };
 
+console.log("Building the script with the following metadata:", metadata);
+
 await esbuild.build({
   entryPoints: ["src/main.ts"],
   target: "es2020",
