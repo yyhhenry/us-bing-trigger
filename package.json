@@ -6,15 +6,11 @@
   },
   "description": "Automatically redirecting to the global version of Bing.",
   "scripts": {
-    "type-check": "tsc --noEmit --skipLibCheck --strict",
-    "biome-check": "biome check --write",
-    "check": "run-s type-check biome-check"
+    "type-check": "tsc --noEmit --skipLibCheck --strict"
   },
   "version": "0.2.4",
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@types/bun": "latest",
-    "npm-run-all2": "^7.0.2"
+    "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"

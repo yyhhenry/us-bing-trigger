@@ -1,10 +1,11 @@
 import * as esbuild from "esbuild";
-import pkg from "./package.json" with { type: "json" };
 import {
   type ScriptMetadata,
   generateBanner,
   iconFromDomain,
 } from "./utils/metadata.ts";
+
+const pkg = await import("./package.json", { assert: { type: "json" } });
 
 const metadata: ScriptMetadata = {
   name: pkg.name,
