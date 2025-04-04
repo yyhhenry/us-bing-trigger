@@ -1,14 +1,14 @@
 {
   "name": "us-bing-trigger",
+  "version": "0.2.5",
+  "description": "Automatically redirecting to the global version of Bing.",
   "author": {
     "name": "yyhhenry",
     "email": "yyhhenry@foxmail.com"
   },
-  "description": "Automatically redirecting to the global version of Bing.",
   "scripts": {
     "type-check": "tsc --noEmit --skipLibCheck --strict"
   },
-  "version": "0.2.4",
   "devDependencies": {
     "@types/bun": "latest"
   },
