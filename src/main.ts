@@ -33,14 +33,11 @@ function isCNBing(url: URL) {
  * and the mark will be added to the search query.
  */
 function redirectToUSBing(url: URL) {
-  const target = new URL(url.pathname, "https://www.bing.com");
-  const q = target.searchParams.get("q") ?? "";
+  const target = new URL(url);
 
-  // Set cc=us to avoid redirecting to local Bing
+  target.host = "www.bing.com";
+  target.searchParams.delete("mkt");
   target.searchParams.set("cc", "us");
-  // Restore the search query
-  target.searchParams.set("q", q);
-  // Add `trigger-from` mark to avoid redirecting again
   target.searchParams.set(MARK_NAME, "");
 
   window.location.replace(target);
