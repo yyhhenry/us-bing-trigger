@@ -37,6 +37,7 @@ function redirectToUSBing(url: URL) {
 
   target.host = "www.bing.com";
   target.searchParams.delete("mkt");
+  target.searchParams.delete("setmkt");
   target.searchParams.set("cc", "us");
   target.searchParams.set(MARK_NAME, "");
 
