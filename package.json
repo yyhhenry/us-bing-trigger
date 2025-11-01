@@ -1,22 +1,19 @@
 {
   "name": "us-bing-trigger",
-  "license": "MIT",
-  "version": "0.3.1",
   "description": "Automatically redirecting to the global version of Bing.",
+  "version": "0.3.1",
+  "license": "MIT",
+  "type": "module",
   "author": {
     "name": "yyhhenry",
     "email": "yyhhenry@foxmail.com"
   },
   "scripts": {
-    "type-check": "tsc --noEmit --skipLibCheck --strict"
-  },
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
+    "type-check": "tsc --noEmit --skipLibCheck --strict",
+    "build": "node build.ts"
   },
   "dependencies": {
-    "esbuild": "^0.25.1"
+    "esbuild": "^0.25.9",
+    "typescript": "^5.9.3"
   }
 }
