@@ -3,13 +3,14 @@
     // Environment setup & latest features
     "lib": ["esnext", "DOM"],
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "nodenext",
     "moduleDetection": "force",
 
     // Bundler mode
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
+    "resolveJsonModule": true,
     "noEmit": true,
 
     // Best practices
