@@ -10,7 +10,8 @@
     "email": "yyhhenry@foxmail.com"
   },
   "scripts": {
-    "type-check": "tsc --noEmit --skipLibCheck --strict"
+    "type-check": "tsc --noEmit --skipLibCheck --strict",
+    "build": "node build.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
