@@ -1,7 +1,7 @@
 {
   "name": "us-bing-trigger",
   "license": "MIT",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "type": "module",
   "private": true,
   "description": "Automatically redirecting to the global version of Bing.",
