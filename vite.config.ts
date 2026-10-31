@@ -26,4 +26,7 @@ export default defineConfig({
     minify: true,
     banner: generateBanner(metadata),
   },
+  staged: {
+    "*": "vp check --fix",
+  },
 });
