@@ -29,4 +29,12 @@ export default defineConfig({
   staged: {
     "*": "vp check --fix",
   },
+  run: {
+    tasks: {
+      local: {
+        command: "vp pack && vp preview --open /us-bing-trigger.user.js",
+        cache: false,
+      },
+    },
+  },
 });
