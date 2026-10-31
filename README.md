@@ -1,23 +1,20 @@
 # us-bing-trigger
 
-Need to install Tampermonkey first.
+A Tampermonkey userscript that automatically switches from Chinese Bing to the global version.
 
-Automatically switch to the global version of Bing when Chinese Bing is
-detected.
+When the page is Chinese Bing, the script redirects to `www.bing.com` while keeping the search query. If the global version is unreachable and Bing falls back to Chinese Bing, the script gives up and stays.
 
-Fall back when you cannot access the global version of Bing.
-
-## 中文
-
-需要先安装 Tampermonkey（又称“油猴”或“篡改猴”）。
-
-当检测到中国必应时，自动切换到全球版必应。
-
-当前用户无法访问全球版必应时，回退到中国必应。
-
-## Installation
+## Quick Start
 
 1. Install Tampermonkey from [tampermonkey.net](https://www.tampermonkey.net/).
 
-2. Add the script from GitHub Release:
-   [us-bing-trigger.user.js](https://github.com/yyhhenry/us-bing-trigger/releases/latest/download/us-bing-trigger.user.js).
+2. Add the script from the latest GitHub release: [us-bing-trigger.user.js](https://github.com/yyhhenry/us-bing-trigger/releases/latest/download/us-bing-trigger.user.js).
+
+## Development
+
+```sh
+vp install
+vp run build
+```
+
+The build writes `dist/us-bing-trigger.user.js`, ready to install or release. See [AGENTS.md](AGENTS.md) for toolchain details and project conventions.
