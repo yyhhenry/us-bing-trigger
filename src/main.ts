@@ -81,4 +81,4 @@ async function redirectIfPossible() {
   }
 }
 
-redirectIfPossible();
+void redirectIfPossible();

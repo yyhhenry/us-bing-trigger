@@ -32,17 +32,14 @@ export function iconFromDomain(domain: string): string {
 }
 
 export function generateBanner(metadata: ScriptMetadata): string {
-  const github =
-    metadata.github ?? `https://github.com/${metadata.author}/${metadata.name}`;
+  const github = metadata.github ?? `https://github.com/${metadata.author}/${metadata.name}`;
   const download =
-    metadata.download ??
-    `${github}/releases/latest/download/${metadata.name}.user.js`;
+    metadata.download ?? `${github}/releases/latest/download/${metadata.name}.user.js`;
 
   const results: string[] = [];
   results.push("// ==UserScript==");
 
-  const pushKV = (key: string, value: string) =>
-    results.push(`// @${key.padEnd(12)} ${value}`);
+  const pushKV = (key: string, value: string) => results.push(`// @${key.padEnd(12)} ${value}`);
 
   pushKV("name", metadata.name);
   pushKV("namespace", github);
