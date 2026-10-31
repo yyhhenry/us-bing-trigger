@@ -9,13 +9,6 @@
     "email": "yyhhenry@foxmail.com"
   },
   "type": "module",
-  "scripts": {
-    "build": "node build.ts"
-  },
-  "dependencies": {
-    "esbuild": "^0.25.1",
-    "typescript": "^5.9.3"
-  },
   "devDependencies": {
     "vite-plus": "catalog:"
   }

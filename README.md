@@ -14,7 +14,7 @@ When the page is Chinese Bing, the script redirects to `www.bing.com` while keep
 
 ```sh
 vp install
-vp run build
+vp pack
 ```
 
 The build writes `dist/us-bing-trigger.user.js`, ready to install or release. See [AGENTS.md](AGENTS.md) for toolchain details and project conventions.

@@ -15,7 +15,7 @@ jobs:
           node-version: "24"
           cache: true
       - run: vp check
-      - run: vp run build
+      - run: vp pack
 
       - name: Create Release
         uses: softprops/action-gh-release@v2

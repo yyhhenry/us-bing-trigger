@@ -3,6 +3,7 @@
     // Environment setup & latest features
     "lib": ["esnext", "DOM"],
     "target": "ESNext",
+    "types": [],
     "module": "nodenext",
     "moduleDetection": "force",
 
