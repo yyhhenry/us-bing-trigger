@@ -23,6 +23,6 @@ This project uses [Vite+](https://viteplus.dev/guide/) (`vp`) for package manage
 - `vp pack` — bundle the userscript with tsdown into `dist/`. Note `vp build` is the Vite production build for apps, a different thing.
 - `vp run local` — build and serve `dist/` with `vp preview`, opening the `.user.js` install link in the browser for quick local installs.
 
-A Vite+ pre-commit hook (`.vite-hooks/pre-commit`) runs `vp staged`, which fixes up staged files on every commit. Escape hatch: `VP_GIT_HOOKS=0 git commit`.
+A Vite+ pre-commit hook (`.vite-hooks/pre-commit`) runs `vp staged`, which fixes up staged files on every commit. Run `vp config` once per clone to install the hook dispatcher. Escape hatch: `VP_GIT_HOOKS=0 git commit`.
 
 Code, comments, and documentation are written in English.

@@ -9,9 +9,6 @@
     "email": "yyhhenry@foxmail.com"
   },
   "type": "module",
-  "scripts": {
-    "prepare": "vp config"
-  },
   "devDependencies": {
     "vite-plus": "catalog:"
   }
