@@ -1,7 +1,6 @@
 {
   "name": "us-bing-trigger",
   "version": "0.3.6",
-  "type": "module",
   "private": true,
   "description": "Automatically redirecting to the global version of Bing.",
   "license": "MIT",
@@ -9,6 +8,7 @@
     "name": "yyhhenry",
     "email": "yyhhenry@foxmail.com"
   },
+  "type": "module",
   "devDependencies": {
     "vite-plus": "catalog:"
   }
