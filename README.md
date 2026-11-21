@@ -14,9 +14,9 @@ When the page is Chinese Bing, the script redirects to `www.bing.com` while keep
 
 ```sh
 vp install   # Install dependencies
-vp config    # One-time per clone: install the commit hooks
+vp check     # Format, lint, and type check
 vp pack      # Build dist/us-bing-trigger.user.js
-vp run local # Build + serve for local Tampermonkey install
+vp run dev   # Build + serve for local Tampermonkey install
 ```
 
 The build writes `dist/us-bing-trigger.user.js`, ready to install or release.

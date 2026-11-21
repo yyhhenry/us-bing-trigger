@@ -9,7 +9,20 @@
     "email": "yyhhenry@foxmail.com"
   },
   "type": "module",
+  "scripts": {
+    "dev": "vp pack && vp preview --open /us-bing-trigger.user.js",
+    "check": "vp check",
+    "build": "vp check && vp pack",
+    "prepare": "vp config"
+  },
   "devDependencies": {
     "vite-plus": "catalog:"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.21.0",
+      "onFail": "download"
+    }
   }
 }

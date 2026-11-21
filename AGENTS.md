@@ -21,8 +21,8 @@ This project uses [Vite+](https://viteplus.dev/guide/) (`vp`) for package manage
 - `vp install` — install dependencies.
 - `vp check` — format (Oxfmt), lint (Oxlint), and type check; config lives in `vite.config.ts`.
 - `vp pack` — bundle the userscript with tsdown into `dist/`. Note `vp build` is the Vite production build for apps, a different thing.
-- `vp run local` — build and serve `dist/` with `vp preview`, opening the `.user.js` install link in the browser for quick local installs.
+- `vp run dev` — build and serve `dist/` with `vp preview`, opening the `.user.js` install link in the browser for quick local installs. This runs the `dev` script in `package.json`, unlike the built-in `vp dev` command (the Vite dev server).
 
-A Vite+ pre-commit hook (`.vite-hooks/pre-commit`) runs `vp staged`, which fixes up staged files on every commit. Run `vp config` once per clone to install the hook dispatcher. Escape hatch: `VP_GIT_HOOKS=0 git commit`.
+A Vite+ pre-commit hook (`.vite-hooks/pre-commit`) runs `vp staged`, which fixes up staged files on every commit. The hook dispatcher installs automatically: the `prepare` script runs `vp config` whenever `vp install` installs dependencies. Run `vp config` manually only if the hook is missing (`vp hooks status` shows the state). Escape hatch: `VP_GIT_HOOKS=0 git commit`.
 
 Code, comments, and documentation are written in English.
